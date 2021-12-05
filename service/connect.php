@@ -6,7 +6,6 @@
     $DB_PASSWORD = '';
 
     //ใช้ Try Catch กำหนดการทำงานหลังเกิดข้อผิดพลาด
-
     try {
         //สร้าง instant ของ Class PDO ให้สามารถเรียก Mysql ได้
         $conn = new PDO("mysql:host={$DB_HOST}; 
