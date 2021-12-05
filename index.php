@@ -72,7 +72,7 @@
                                             <div class="col-12 col-sm-4">
                                                 <h3 class="d-inline-block d-sm-none"><?php echo $data->response[$i]->p_name ?></h3>
                                                 <div class="col-6 rounded mx-auto d-block">
-                                                    <img src="https://via.placeholder.com/200x300.png" class="product-image" alt="Product Image">
+                                                    <img src=<?php echo $data->response[$i]->p_image ?> class="product-image" alt="Product Image">
                                                 </div>
                                                 </div>
                                                 <div class="col-12 col-sm-8">
@@ -133,7 +133,7 @@
 
             swalWithBootstrapButtons.fire({
             title: 'คุณต้องการเพิ่มรายการสินค้า ?',
-            text: "ข้อมูลสินค้าจากการ Calling API",
+            text: "ข้อมูลสินค้าจากการ Calling API-Nack",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'ตกลง',
