@@ -14,7 +14,7 @@
         $DB_USERNAME, $DB_PASSWORD); 
         //Set mode Error ของ PDO ให้เป็น MODE EXCEPTION
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (\Throwable $th) {
+    } catch (Throwable $th) {
         echo 'การเชื่อมต่อฐานข้อมูลล้มเหลว : '.$th->getMessage();
         exit();
     }

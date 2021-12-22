@@ -16,21 +16,19 @@
         //วิธี Question Mark
         // $param = [2,'food'];
         // $stmt = $conn->prepare('SELECT * FROM categories WHERE cat_id = ? AND cat_name = ?'); 
-        // $stmt->execute($param);
-        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
         //วิธี Named Parameter
-        // $param = array(
-        //     ':cat_id'=>2
-        // );
+        // $param = array(':cat_id'=>2);
         // $stmt = $conn->prepare('SELECT * FROM categories WHERE cat_id = :cat_id '); 
-        // $stmt->execute($param);
+
 
         // $id = isset($_GET['cat_id']) ? $_GET['cat_id'] : null; //short if statment
-        
         $id = $_GET['cat_id'] ?? null; //แบบไม่ใช่ isset , PHP 7 ขึ้นไปถึงใช้ได้ อธิบาย ซ้ายมีข้อมูลมั้ย ถ้ามีเอาซ้าย ถ้าไม่มีเอาขวา
         if ($id) {
-            $param = array(':cat_id'=> $id);
+            $param = array(
+                ':cat_id'=> $id
+            );
             $stmt = $conn->prepare('SELECT * FROM categories WHERE cat_id = :cat_id '); 
             $stmt->execute($param);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,7 +49,7 @@
                 http_response_code(404);
                 echo json_encode($response); 
             }
-        }else{ // ถ้า $id ไม่ได้ถูกส่งมา จะถือว่าไม่ได้ทำตามจุดประสงค์ API
+        }else{ // ถ้า $id ไม่ได้ถูกส่งมา จะถือว่าไม่ได้ทำตามจุดประสงค์ของ API
             $response = array(
                 'status' => false,
                 'message' => 'Bad Request!'
